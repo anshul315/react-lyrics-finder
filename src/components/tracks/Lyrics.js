@@ -30,14 +30,17 @@ class Lyrics extends Component {
 
     render() {
         const {track , lyrics} = this.state;
+
         if (track === undefined || lyrics === undefined || Object.keys(track).length === 0 || Object.keys(lyrics).length === 0 ){
             return <Spinner />
         }else{
+            let newText = lyrics.lyrics_body.split ('\n').map ((item, i) => <p key={i}>{item}</p>);
+
             return  (
                 <React.Fragment>
                     <h3 className="text-center mb-4">{ track.track_name }</h3>
-                    <div className="row">
-                        <p>{ lyrics.lyrics_body}</p>
+                    <div className="text-center mb-4">
+                        { newText }
                     </div> 
                 </React.Fragment>
                 

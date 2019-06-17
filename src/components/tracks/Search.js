@@ -18,7 +18,7 @@ class Search extends Component {
         e.preventDefault();
 
         const {trackTitle} = this.state;
-        const url = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_track=${trackTitle}&page_size=10&apikey=${process.env.REACT_APP_MM_KEY}`;
+        const url = `https://cors-anywhere.herokuapp.com/https://api.musixmatch.com/ws/1.1/track.search?q_track=${trackTitle}&page_size=10&s_track_rating=desc&s_artist_rating=desc&apikey=${process.env.REACT_APP_MM_KEY}`;
         // console.log(url)
         axios.get(url)
             .then(res => {
